@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Food App (AT)</title>
-   <script type="module" src="../data-list/data-list-component.js"></script>
+   <title>MyApp (MVC)</title>
 </head>
 <body>
-       
-    <!-- Food Journal UI is rendered here using the data-list web component -->
-    <data-list id="today">
-        <data-list-header>Heute</data-list-header>
-    </data-list>
-    <data-list id="yesterday">
-        <data-list-header>Gestern</data-list-header>
-    </data-list>
+    <ul id="ul-list">
+        <!-- FoodDiary ListView is rendered here-->
+    </ul>
+    <input type="text" id="item-content">
+    <button type="button" id="add-item">Hinzufügen</button>
 </body>
-
-<script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="mvc.js"></script>
 </html>
