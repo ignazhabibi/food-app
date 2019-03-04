@@ -1,45 +1,9 @@
-/* eslint-disable no-console */
-
 "use strict";
 
-//Mock Data
-const ENTRIES = ["Banane", "Apfel", "Pfirsich"];
-
-
-//Event Emitter (reusable mixin object / revealing module pattern)
-const eventEmitterMixin = (function() {
-
-    const _listenersByEvent = new Map();
-    //Key value pairs {"eventName1": [listener1, listener2...]}
-
-    function addListenerToEvent(eventName, listener) {
-        if (!_listenersByEvent.has(eventName)) {
-            _listenersByEvent.set(eventName, []);
-        }
-        _listenersByEvent
-            .get(eventName)
-            .push(listener);
-    }
-
-    function emitEvent(eventName, data) {
-        const listeners = _listenersByEvent.get(eventName);
-        if (listeners) {
-            for (let listener of listeners) {
-                listener(data);
-            }
-        }
-    }    
-
-    return {
-        //public API object
-        on: addListenerToEvent,
-        emit: emitEvent
-    };  
-})();
-
+import {eventEmitterMixin} from "../core/eventEmitter.js";
 
 //Model
-class ListModel {
+export class ListModel {
     constructor(items = []) {
         //Mixin Event Emitter public API object 
         Object.assign(this, eventEmitterMixin);
@@ -57,9 +21,8 @@ class ListModel {
     }
 }
 
-
 //View
-class ListView {
+export class ListView {
     constructor(model) {
         //Mixin Event Emitter public API object
         Object.assign(this, eventEmitterMixin);
@@ -94,9 +57,8 @@ class ListView {
     }
 }
 
-
 //Controller
-class ListController {
+export class ListController {
     constructor(model, view) {
         //Mixin Event Emitter public API object
         Object.assign(this, eventEmitterMixin);
@@ -113,10 +75,3 @@ class ListController {
         this.model.addItem(item.value);
     }
 }
-
-
-
-const foodDiaryModel = new ListModel(ENTRIES);
-const foodDiaryView = new ListView(foodDiaryModel);
-const foodDiarycontroller = new ListController(foodDiaryModel, foodDiaryView);
-foodDiaryView.initListView();

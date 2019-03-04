@@ -1,5 +1,5 @@
 import { dataListItemTemplate } from "./data-list-templates.js";
-import { createHTMLTemplate } from "../mb-helper.js";
+import { createHTMLTemplate } from "../core/mb-helper.js";
 
 const itemTpl = createHTMLTemplate(dataListItemTemplate);
 

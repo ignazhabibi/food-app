@@ -1,5 +1,5 @@
 import { dataListHeaderTemplate } from "./data-list-templates.js";
-import { createHTMLTemplate } from "../mb-helper.js";
+import { createHTMLTemplate } from "../core/mb-helper.js";
 
 const headerTpl = createHTMLTemplate(dataListHeaderTemplate);
 
