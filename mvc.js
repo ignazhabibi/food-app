@@ -40,20 +40,32 @@ export class ListView {
 
     initListView() {
         const items = this.model.getItems();
-        const displayContainer = document.getElementById("ul-list");
+        const displayContainer = document.getElementById("today");
 
         for (let item of items) {
-            let liElement = document.createElement("li");
-            liElement.innerHTML = item;
-            displayContainer.appendChild(liElement);
+            let liItem = document.createElement("data-list-item");
+            let liIcon = document.createElement("data-list-icon");
+            let liContent = document.createElement("data-list-content");
+            let liSequence = document.createElement("data-list-sequence");
+            liContent.innerHTML = `<h3>${item}</h3>`;
+            displayContainer.appendChild(liItem);
+            liItem.appendChild(liIcon);
+            liItem.appendChild(liContent);
+            liItem.appendChild(liSequence);
         }
     }
 
     addListItem(item) {
-        const displayContainer = document.getElementById("ul-list");
-        const liElement = document.createElement("li");
-        liElement.innerHTML = item;
-        displayContainer.appendChild(liElement);
+        const displayContainer = document.getElementById("today");
+        let liItem = document.createElement("data-list-item");
+        let liIcon = document.createElement("data-list-icon");
+        let liContent = document.createElement("data-list-content");
+        let liSequence = document.createElement("data-list-sequence");
+        liContent.innerHTML = `<h3>${item}</h3>`;
+        displayContainer.appendChild(liItem);
+        liItem.appendChild(liIcon);
+        liItem.appendChild(liContent);
+        liItem.appendChild(liSequence);
     }
 }
 

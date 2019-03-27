@@ -2,12 +2,14 @@
 <html>
 <head>
    <title>MyApp (MVC)</title>
+   <script type="module" src="data-list/data-list-component.js"></script>
    <script type="module" src="./app.js"></script>
 </head>
 <body>
-    <ul id="ul-list">
+    <data-list id="today">
+        <data-list-header>Heute</data-list-header>
         <!-- FoodDiary ListView is rendered here-->
-    </ul>
+    </data-list>
     <input type="text" id="item-content">
     <button type="button" id="add-item">Hinzufügen</button>
 </body>
